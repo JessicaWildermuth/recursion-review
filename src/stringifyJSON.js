@@ -7,9 +7,9 @@ var stringifyJSON = function(obj) {
   // your code goes here
   // create return string
   var result = '';
-  if (obj === undefined) {
+  // if (obj === undefined) {
 
-  }
+  // }
   if (obj === null) {
     return 'null';
   }
@@ -43,16 +43,17 @@ var stringifyJSON = function(obj) {
     //make for in loop with condition (notfunction or undefined)
     for (var keys in obj) {
     //declare varialble for the key and value
-      if (typeof obj[keys] !== 'function' && obj[keys] !== undefined) {
+      if (typeof obj[keys] !== 'function' && typeof obj[keys] !== 'undefined') {
         var key = '"' + keys + '"';
         //convert key to string
         //run stringify on value
-        var value = stringifyJSON(obj[key]);
+        var value = stringifyJSON(obj[keys]);
         //concat them to a result variable between ':' and ','
         objResult += key + ':' + value + ',';
       }
     }
     objResult = objResult.slice(0, -1);
+    objResult += '}';
     return objResult;
   //convert element into strings, concat to result
   } else if (typeof obj === 'string') {
