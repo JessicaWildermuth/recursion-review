@@ -13,8 +13,24 @@ var stringifyJSON = function(obj) {
   // check what type of obj it is
   // if complex data (array // obj)
   if (Array.isArray(obj)) {
+    if (obj.length === undefined) {
+      return '[]';
+    }
+    var arrayStart = '[';
     //iterate through structure,
-  //convert element into strings, concat to result
+    for (var i = 0; i < obj.length; i++) {
+    //stringify each element
+      var element = stringifyJSON(obj[i]);
+      arrayStart += element + ',';
+    // add to arrayStart
+    //add ',' to arrayStart
+    }
+    //end of loop, remove last , (aka last index)
+    arrayStart.pop();
+    arrayStart += ']';
+    //add closing brack to arrayStart
+    //return arrayStart
+    return arrayStart;
   } else if (typeof obj === 'object') {
     //skip key if it is a function
     //iterate through structure,
