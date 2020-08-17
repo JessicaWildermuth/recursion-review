@@ -13,7 +13,7 @@ var stringifyJSON = function(obj) {
   // check what type of obj it is
   // if complex data (array // obj)
   if (Array.isArray(obj)) {
-    if (obj.length === undefined) {
+    if (obj[0] === undefined) {
       return '[]';
     }
     var arrayStart = '[';
@@ -26,7 +26,7 @@ var stringifyJSON = function(obj) {
     //add ',' to arrayStart
     }
     //end of loop, remove last , (aka last index)
-    arrayStart.pop();
+    arrayStart = arrayStart.slice(0, -1);
     arrayStart += ']';
     //add closing brack to arrayStart
     //return arrayStart
