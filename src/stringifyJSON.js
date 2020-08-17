@@ -52,7 +52,9 @@ var stringifyJSON = function(obj) {
         objResult += key + ':' + value + ',';
       }
     }
-    objResult = objResult.slice(0, -1);
+    if (objResult.length > 1) {
+      objResult = objResult.slice(0, -1);
+    }
     objResult += '}';
     return objResult;
   //convert element into strings, concat to result
