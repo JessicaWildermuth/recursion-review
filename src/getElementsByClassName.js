@@ -7,8 +7,8 @@
 var getElementsByClassName = function(className) {
   // create empty array
   var result = [];
-  // check if document body classlist has target classname
-  if (document.body.classlist.contains(className)) {
+  // check if document body classList has target classname
+  if (document.body.classList.contains(className)) {
   // if so, add document body to result array
     result.push(document.body);
   }
@@ -18,8 +18,8 @@ var getElementsByClassName = function(className) {
     if (element[0] !== undefined) {
     // if so, we loop over the element array
       for (var i = 0; i < element.length; i++) {
-      // check if element in the element array has className in classlist
-        if (element[i].classlist.contains(className)) {
+      // check if element in the element array has className in classList
+        if (element[i].classList.contains(className)) {
           result.push(element[i]);
         }
         // check if element has children
