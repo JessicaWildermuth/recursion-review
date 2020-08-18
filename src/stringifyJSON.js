@@ -19,21 +19,21 @@ var stringifyJSON = function(obj) {
     if (obj[0] === undefined) {
       return '[]';
     }
-    var arrayStart = '[';
+    var arrayResult = '[';
     //iterate through structure,
     for (var i = 0; i < obj.length; i++) {
     //stringify each element
       var element = stringifyJSON(obj[i]);
-      arrayStart += element + ',';
+      arrayResult += element + ',';
     // add to arrayStart
     //add ',' to arrayStart
     }
     //end of loop, remove last , (aka last index)
-    arrayStart = arrayStart.slice(0, -1);
-    arrayStart += ']';
+    arrayResult = arrayResult.slice(0, -1);
+    arrayResult += ']';
     //add closing brack to arrayStart
     //return arrayStart
-    return arrayStart;
+    return arrayResult;
   } else if (typeof obj === 'object') {
     var objKeys = Object.keys(obj);
     if (objKeys[0] === undefined) {
